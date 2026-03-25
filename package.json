@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && gh-pages -d out"
+    "deploy": "next build && rm -rf /tmp/gh-pages && gh-pages -d out"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
