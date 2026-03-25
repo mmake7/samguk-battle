@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --color-goguryeo: #C62828;
+  --color-goguryeo-light: #EF5350;
+  --color-baekje: #2E7D32;
+  --color-baekje-light: #66BB6A;
+  --color-silla: #6A1B9A;
+  --color-silla-light: #AB47BC;
+  --color-gold: #d4a843;
+  --color-gold-light: #f0d060;
+  --color-hanji: #1a1612;
+  --color-hanji-light: #2a2218;
+  --color-hanji-border: #3a3228;
+}
+
+@theme inline {
+  --color-background: #1a1612;
+  --color-foreground: #e8dcc8;
+  --color-goguryeo: #C62828;
+  --color-goguryeo-light: #EF5350;
+  --color-baekje: #2E7D32;
+  --color-baekje-light: #66BB6A;
+  --color-silla: #6A1B9A;
+  --color-silla-light: #AB47BC;
+  --color-gold: #d4a843;
+  --color-gold-light: #f0d060;
+  --font-serif: var(--font-noto-serif-kr);
+}
+
+body {
+  background: var(--color-hanji);
+  color: #e8dcc8;
+  font-family: var(--font-noto-serif-kr), serif;
+  min-height: 100vh;
+}
+
+/* 한지 질감 배경 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(198, 40, 40, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(106, 27, 154, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(46, 125, 50, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 별점(도장) 애니메이션 */
+@keyframes stamp {
+  0% { transform: scale(1.5); opacity: 0; }
+  50% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-stamp {
+  animation: stamp 0.3s ease-out forwards;
+}
+
+/* 펄스 글로우 */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(212, 168, 67, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(212, 168, 67, 0.6); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 글래스모피즘 카드 */
+.glass-card {
+  background: rgba(42, 34, 24, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 168, 67, 0.2);
+  border-radius: 12px;
+}
